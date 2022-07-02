@@ -1,0 +1,38 @@
+﻿@page "/"
+<PageTitle>Index</PageTitle>
+<div class="data col-2">
+<button class="b" @onclick="Start"> Graficar </button>
+</div>
+
+
+<div class="graphic col-10">
+    <BECanvas  @ref="_canvasReference" Height="700" Width="700"></BECanvas>
+</div>
+
+
+@code{
+
+    private Canvas2DContext _context;
+
+    private BECanvasComponent _canvasReference;
+
+    public async Task Start(MouseEventArgs mouseEventArgs)
+    {
+        Graphic graphic = new Graphic(_canvasReference);
+        await graphic.DrawGraphic(6,6);
+        List<Tuple<double, double>> lis = new List<Tuple<double, double>>();
+
+        for (double i = -6.30; i < 6.30; i = i + 0.1)
+        {
+            Tuple<double, double> t = new Tuple<double, double>(i, Math.Sin(i));
+            lis.Add(t);
+        }
+       
+        
+        
+        await  graphic.DrawFunction(lis);
+
+
+    }
+
+}
