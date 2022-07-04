@@ -161,6 +161,16 @@
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
+      },
+      "Logic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Logic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Logic.dll": {}
+        }
       }
     }
   },
@@ -407,11 +417,17 @@
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
+    },
+    "Logic/1.0.0": {
+      "type": "project",
+      "path": "../Logic/Logic.csproj",
+      "msbuildProject": "../Logic/Logic.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Blazor.Extensions.Canvas >= 1.1.1",
+      "Logic >= 1.0.0",
       "Newtonsoft.Json >= 13.0.1"
     ]
   },
@@ -441,7 +457,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Armando\\Desktop\\Proyecto Analisis\\Graficador\\Logic\\Logic.csproj": {
+              "projectPath": "C:\\Users\\Armando\\Desktop\\Proyecto Analisis\\Graficador\\Logic\\Logic.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

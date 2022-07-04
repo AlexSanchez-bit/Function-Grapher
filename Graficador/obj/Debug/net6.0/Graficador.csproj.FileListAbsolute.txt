@@ -28,3 +28,5 @@ C:\Users\Armando\Desktop\Proyecto Analisis\Graficador\Graficador\bin\Debug\net6.
 C:\Users\Armando\Desktop\Proyecto Analisis\Graficador\Graficador\bin\Debug\net6.0\Blazor.Extensions.Canvas.dll
 C:\Users\Armando\Desktop\Proyecto Analisis\Graficador\Graficador\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Armando\Desktop\Proyecto Analisis\Graficador\Graficador\obj\Debug\net6.0\Graficador.csproj.CopyComplete
+C:\Users\Armando\Desktop\Proyecto Analisis\Graficador\Graficador\bin\Debug\net6.0\Logic.dll
+C:\Users\Armando\Desktop\Proyecto Analisis\Graficador\Graficador\bin\Debug\net6.0\Logic.pdb

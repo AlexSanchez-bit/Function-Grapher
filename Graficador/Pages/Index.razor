@@ -1,8 +1,20 @@
 ﻿@page "/"
+@using Logic
 <PageTitle>Index</PageTitle>
 <div class="data col-2">
-<button class="b" @onclick="Start"> Graficar </button>
+<EditForm Model="@form" OnValidSubmit="@Start">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+     <InputText id="name" @bind-Value="form.Function" />
+     <InputNumber id="intervale_a" @bind-Value = "form.Intervale_a"/>
+     <InputNumber id="intervale_b" @bind-Value = "form.Intervale_b"/>
+    <button type="submit">Graficar</button>
+</EditForm>
+
+<!-- Imprimir info de puntos de inflexion, maximos, minimos y asintotas-->
 </div>
+
 
 
 <div class="graphic col-10">
@@ -16,10 +28,21 @@
 
     private BECanvasComponent _canvasReference;
 
-    public async Task Start(MouseEventArgs mouseEventArgs)
+
+    private Form form = new Form();
+
+
+    public async Task Start()
     {
         Graphic graphic = new Graphic(_canvasReference);
-        await graphic.DrawGraphic(6,6);
+        await graphic.Clear();
+
+        Data data = new Data(form.Intervale_a, form.Intervale_b, form.Function);
+       
+        await graphic.DrawGraphic(data.Intervale_a, data.Intervale_b);
+
+
+
         List<Tuple<double, double>> lis = new List<Tuple<double, double>>();
 
         for (double i = -6.30; i < 6.30; i = i + 0.1)

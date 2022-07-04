@@ -10,9 +10,9 @@ namespace Graficador.Data
         private int height;
         private int width;
         private double scale;
-        private double  origin_x, origin_y;
+        private double origin_x, origin_y;
         public Graphic(BECanvasComponent canvasComponent) {
-            
+
             this.canvasComponent = canvasComponent;
             height = (int)canvasComponent.Height;
             width = (int)canvasComponent.Width;
@@ -27,9 +27,9 @@ namespace Graficador.Data
             double originy = height / 2;
             return (originx, originy);
         }
+      
         public async Task DrawGraphic(double range_a, double range_b) {
             this.canvas2DContext = await canvasComponent.CreateCanvas2DAsync();
-           
             scale = Math.Round(getScale(range_a, range_b),3);
 
             //Draw Y
@@ -82,6 +82,12 @@ namespace Graficador.Data
 
             }
 
+        }
+
+        public async Task Clear() {
+            this.canvas2DContext = await canvasComponent.CreateCanvas2DAsync();
+            await canvas2DContext.ClearRectAsync(0, 0, width, height);
+        
         }
     }
 }
